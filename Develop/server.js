@@ -26,3 +26,8 @@ app.get('/notes', (req, res) => {
 app.get('/api/notes', (req, res) => {
     res.json(notesDB);
 });
+
+//to handle unspecified endpoints:
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '.public/index.html'));
+});
