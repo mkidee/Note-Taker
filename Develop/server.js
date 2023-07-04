@@ -32,8 +32,28 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '.public/index.html'));
 });
 
+// new note objects:
+function generateNote (title, text) {
+    const newNote = {
+        title: title,
+        text: text
+    };
 
+    notesDB.push(newNote);
 
+    fs.writeFileSync(
+        path.join(__dirname, './db/db.json'),
+        JSON.stringify(notesDB, null, 2)
+    );
+
+    return newNote;
+};
+
+//routes to handle a new note:
+app.post('/api/notes', (req, res) => {
+    const newNote = generateNote(req.body.title, req.body.text);
+    res.json(newNote);
+})
 
 // listen for new requests:
 app.listen(PORT, () =>
