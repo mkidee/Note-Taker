@@ -31,3 +31,11 @@ app.get('/api/notes', (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '.public/index.html'));
 });
+
+
+
+
+// listen for new requests:
+app.listen(PORT, () =>
+console.log(`App listening at http://localhost:${PORT}`)
+);
