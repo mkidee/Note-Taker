@@ -53,6 +53,8 @@ const deleteNote = (id) =>
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
+  console.log(activeNote);
+
   if (activeNote.id) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
@@ -161,6 +163,7 @@ const renderNoteList = async (notes) => {
   jsonNotes.forEach((note) => {
     const li = createLi(note.title);
     li.dataset.note = JSON.stringify(note);
+    console.log(note);
 
     noteListItems.push(li);
   });

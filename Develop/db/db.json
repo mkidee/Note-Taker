@@ -1,26 +1,12 @@
 [
   {
-    "title": "Test Title",
-    "text": "Test text"
+    "id": "edf3d7ea-a822-4eb2-ad95-7bb9062d3cb8",
+    "title": "New note with uuid",
+    "text": "thsi should finally work now that i fixed it\n"
   },
   {
-    "title": "This is a new test note",
-    "text": "this is test text that i am inserting into tihs note \n"
-  },
-  {
-    "title": "one more time",
-    "text": "one more time one more time one more time"
-  },
-  {
-    "title": "test",
-    "text": "testtestsetsetsett"
-  },
-  {
-    "title": "save ",
-    "text": "test"
-  },
-  {
-    "title": "new note",
-    "text": "note new"
+    "id": "bb901167-13d4-4590-b91b-4c3066494789",
+    "title": "one more test note",
+    "text": "this is a test note\n"
   }
 ]

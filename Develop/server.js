@@ -1,6 +1,7 @@
 // all requirements for the assignment
 const PORT = process.env.PORT || 3001;
 const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const notesDB = require('./db/db.json');
 
@@ -56,37 +57,37 @@ app.post('/api/notes', (req, res) => {
     res.json(newNote);
 });
 
-// deleting an existing note
-function deleteNote (id) {
-    // find a note based on id
-    const noteIndex = notesDB.findIndex(note => note.id === id);
+// // deleting an existing note
+// function deleteNote (id) {
+//     // find a note based on id
+//     const noteIndex = notesDB.findIndex(note => note.id === id);
   
-    // if the id is found, then we will delete the note from the array of notes
-    if (noteIndex >= 0) {
-      notesDB.splice(noteIndex, 1);
+//     // if the id is found, then we will delete the note from the array of notes
+//     if (noteIndex >= 0) {
+//       notesDB.splice(noteIndex, 1);
   
-      // send the updated db to the db.json
-      fs.writeFileSync(
-        path.join(__dirname, './db/db.json'),
-        JSON.stringify(notesDB, null, 2)
-      );
+//       // send the updated db to the db.json
+//       fs.writeFileSync(
+//         path.join(__dirname, './db/db.json'),
+//         JSON.stringify(notesDB, null, 2)
+//       );
   
-      return true;
-    } else {
-      return false;
-    }
-}
+//       return true;
+//     } else {
+//       return false;
+//     }
+// }
 
-// sending the request to delete the notes by id
-app.delete('/api/notes/:id', (req, res) => {
-    const id = req.params.id;
-    const deleted = deleteNote(id);
-    if (deleted) {
-      res.status(204).send();
-    } else {
-      res.status(404).send();
-    }
-});
+// // sending the request to delete the notes by id
+// app.delete('/api/notes/:id', (req, res) => {
+//     const id = req.params.id;
+//     const deleted = deleteNote(id);
+//     if (deleted) {
+//       res.status(204).send();
+//     } else {
+//       res.status(404).send();
+//     }
+// });
 
 // listen for new requests:
 app.listen(PORT, () =>
